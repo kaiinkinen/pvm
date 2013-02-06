@@ -142,7 +142,14 @@ pvm()
 
 	    appname=play-${VERSION}
 	    zipfile="${appname}.zip"
-	    download_url="http://download.playframework.org/releases/${zipfile}"
+
+	    MAJOR_VERSION=$(echo "$VERSION" | cut -d '.' -f 1)
+	    MINOR_VERSION=$(echo "$VERSION" | cut -d '.' -f 2)
+	    if [[ "$MAJOR_VERSION" == "1" || ("$MAJOR_VERSION" == "2" && "$MINOR_VERSION" == "0") ]]; then
+	        download_url="http://downloads.typesafe.com/releases/${zipfile}"
+	    else
+	        download_url="http://downloads.typesafe.com/play/${VERSION}/${zipfile}"
+	    fi
 
 	    http_code=$(curl -w '%{http_code}' -sIL "${download_url}" -o /dev/null)
 	    if (( $? != 0 )); then 
