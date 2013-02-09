@@ -50,7 +50,7 @@ To restore your PATH, you can deactivate it.
 
     pvm deactivate
 
-To set a default Node version to be used in any new shell, use the alias 'default':
+To set a default Play version to be used in any new shell, use the alias 'default':
 
     pvm alias default 2.0
 
