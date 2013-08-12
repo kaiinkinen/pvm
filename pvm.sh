@@ -145,7 +145,7 @@ pvm()
 
 	    MAJOR_VERSION=$(echo "$VERSION" | cut -d '.' -f 1)
 	    MINOR_VERSION=$(echo "$VERSION" | cut -d '.' -f 2)
-	    if [[ "$MAJOR_VERSION" == "1" || ("$MAJOR_VERSION" == "2" && "$MINOR_VERSION" == "0") ]]; then
+	    if [[ ("$MAJOR_VERSION" == "1" && "$VERSION" != "1.2.6" && "$VERSION" != "1.2.5.1") || ("$MAJOR_VERSION" == "2" && "$MINOR_VERSION" == "0") ]]; then
 	        download_url="http://downloads.typesafe.com/releases/${zipfile}"
 	    else
 	        download_url="http://downloads.typesafe.com/play/${VERSION}/${zipfile}"
