@@ -81,7 +81,7 @@ download_file_if_needed()
             fi
                 
             curl -C - --progress-bar ${url} -o "${file}" || \
-                (echo -e "\nRestart donwload" && rm -f "${file}" && curl --progress-bar ${url} -o "${file}" ) || \
+                (echo -e "\nRestart download" && rm -f "${file}" && curl --progress-bar ${url} -o "${file}" ) || \
                 mv ${tempfile} ${file_http_head} && return 0 # Success
 
             return 255 # fail
